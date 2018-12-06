@@ -7,6 +7,7 @@ import {BookService} from '../services/book.service';
   styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit {
+  displayedColumns = ['title', 'author', 'publicationDate'];
   books: Array<any>;
 
   constructor(private bookService: BookService) { }
