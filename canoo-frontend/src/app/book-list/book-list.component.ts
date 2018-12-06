@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {BookService} from '../services/book.service';
+import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {Book} from '../models/Book';
 
 @Component({
   selector: 'app-book-list',
@@ -8,15 +10,18 @@ import {BookService} from '../services/book.service';
 })
 export class BookListComponent implements OnInit {
   displayedColumns = ['title', 'author', 'publicationDate'];
-  books: Array<any>;
+  books: MatTableDataSource<Book>;
+
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private bookService: BookService) { }
 
   ngOnInit() {
-    this.bookService.getAll().subscribe(data => this.books = data);
-  }
-
-  get noBooks(): boolean {
-    return !this.books || this.books.length < 1;
+    this.bookService.getAll().subscribe((data: Book[]) => {
+      this.books = new MatTableDataSource(data);
+      this.books.sort = this.sort;
+      this.books.paginator = this.paginator;
+    });
   }
 }

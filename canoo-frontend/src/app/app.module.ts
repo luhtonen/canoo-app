@@ -8,7 +8,7 @@ import {
   MatCardModule,
   MatDatepickerModule,
   MatInputModule,
-  MatNativeDateModule,
+  MatNativeDateModule, MatPaginatorModule, MatSortModule,
   MatTableModule,
   MatToolbarModule
 } from '@angular/material';
@@ -35,6 +35,8 @@ import {BookEditComponent} from './book-edit/book-edit.component';
     MatCardModule,
     MatInputModule,
     MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
     MatToolbarModule,
     FormsModule
   ],
