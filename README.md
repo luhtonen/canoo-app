@@ -39,7 +39,6 @@ Application is available at http://localhost:4200
 
 Features to be implemented:
 
-- List sort by title, by author and by publication date
 - Book search
 - User authentication
 - Restricting book deletion to admin users only
