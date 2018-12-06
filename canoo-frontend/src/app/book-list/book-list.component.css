@@ -5,3 +5,9 @@ table {
 th.mat-sort-header-sorted {
   color: black;
 }
+
+.search {
+  float: right;
+  width: 50%;
+  margin-right: 10px;
+}

@@ -6,7 +6,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
   MatCardModule,
-  MatDatepickerModule,
+  MatDatepickerModule, MatIconModule,
   MatInputModule,
   MatNativeDateModule, MatPaginatorModule, MatSortModule,
   MatTableModule,
@@ -38,6 +38,7 @@ import {BookEditComponent} from './book-edit/book-edit.component';
     MatPaginatorModule,
     MatSortModule,
     MatToolbarModule,
+    MatIconModule,
     FormsModule
   ],
   providers: [

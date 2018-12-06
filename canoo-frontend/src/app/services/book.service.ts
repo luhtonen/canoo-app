@@ -31,4 +31,8 @@ export class BookService {
   remove(href: string) {
     return this.http.delete(href);
   }
+
+  search(query: string) {
+    return this.http.get(`${this.API}/search?q=${query}`);
+  }
 }

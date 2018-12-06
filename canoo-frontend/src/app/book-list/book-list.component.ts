@@ -11,6 +11,7 @@ import {Book} from '../models/Book';
 export class BookListComponent implements OnInit {
   displayedColumns = ['title', 'author', 'publicationDate'];
   books: MatTableDataSource<Book>;
+  query: string;
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -19,9 +20,18 @@ export class BookListComponent implements OnInit {
 
   ngOnInit() {
     this.bookService.getAll().subscribe((data: Book[]) => {
-      this.books = new MatTableDataSource(data);
-      this.books.sort = this.sort;
-      this.books.paginator = this.paginator;
+      this.loadData(data);
     });
+  }
+
+  search() {
+    console.log('### search for ', this.query);
+    this.bookService.search(this.query).subscribe((data: Book[]) => this.loadData(data));
+  }
+
+  loadData(data: Book[]) {
+    this.books = new MatTableDataSource(data);
+    this.books.sort = this.sort;
+    this.books.paginator = this.paginator;
   }
 }
