@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-title>Books</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let book of books">
+        <h3 mat-line>
+          <a mat-button [routerLink]="['/book-edit', book.id]">{{book.title}}</a>
+        </h3>
+      </mat-list-item>
+      <mat-list-item *ngIf="noBooks">
+        <span>No books found</span>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+
+  <button mat-fab color="primary" [routerLink]="['/book-add']">Add</button>
+</mat-card>
