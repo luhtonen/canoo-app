@@ -25,8 +25,12 @@ export class BookListComponent implements OnInit {
   }
 
   search() {
-    console.log('### search for ', this.query);
     this.bookService.search(this.query).subscribe((data: Book[]) => this.loadData(data));
+  }
+
+  clearQuery() {
+    this.query = '';
+    this.search();
   }
 
   loadData(data: Book[]) {

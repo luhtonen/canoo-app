@@ -2,7 +2,7 @@
     <mat-card-title>Books</mat-card-title>
 
     <mat-form-field class="search">
-      <input type="text" matInput placeholder="Search..." [(ngModel)]="query" (keyup.enter)="search()">
+      <input type="text" matInput placeholder="Search..." [(ngModel)]="query" (keyup.enter)="search()" (keyup.esc)="clearQuery()">
       <button mat-button matSuffix mat-icon-button area-label="Search" [disabled]="!query" (click)="search()">
         <mat-icon>&#xE8B6;</mat-icon>
       </button>

@@ -61,6 +61,6 @@ public class BookController {
 
     @GetMapping("/books/search")
     public List<Book> query(@RequestParam("q") String query) {
-        return bookRepository.findByTitleContaining(query);
+        return bookRepository.findByTitleContainingIgnoreCaseOrAuthorContainingIgnoreCase(query, query);
     }
 }

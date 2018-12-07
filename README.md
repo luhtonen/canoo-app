@@ -27,9 +27,13 @@ Frontend is implemented with TypeScript and Angular 7 using angular cli.
 
 In order to run the application Node.js must be installed. For implementation latest LTS version 10 was used.
 
+Before running frontend for the first time, all packages required by this project should be installed. Execute following command in directory `canoo-frontend`:
+
+    npm install
+
 ### Run frontend
 
-To start frontend application change to `canoon-frontend` directory and run following command:
+To start frontend application change to `canoo-frontend` directory and run following command:
 
     npm start
 
@@ -39,6 +43,5 @@ Application is available at http://localhost:4200
 
 Features to be implemented:
 
-- Book search
 - User authentication
 - Restricting book deletion to admin users only
