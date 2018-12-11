@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {BookService} from '../services/book.service';
 import {NgForm} from '@angular/forms';
+import {AuthenticationService} from '../services/authentication.service';
 
 @Component({
   selector: 'app-book-edit',
@@ -16,7 +17,8 @@ export class BookEditComponent implements OnInit, OnDestroy {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private bookService: BookService) { }
+              private bookService: BookService,
+              private authService: AuthenticationService) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
@@ -59,6 +61,6 @@ export class BookEditComponent implements OnInit, OnDestroy {
   }
 
   get canDelete() {
-    return this.book.href;
+    return this.authService.isAdmin();
   }
 }
