@@ -5,6 +5,12 @@ This application consists of 2 separate projects:
 - canoo-server - server application implemented with Spring Boot
 - canoo-frontend - frontend application implemented with Angular 7
 
+Basic authentication with username and password is implemented in the application.
+2 user roles are available in the application:
+
+- Admin - can perform all actions including deleting the book
+- Librarian - can search books, view book details and edit book
+
 ## Server
 
 Server application is built with Spring Boot and connects to MongoDB database.
@@ -12,6 +18,8 @@ Server application is built with Spring Boot and connects to MongoDB database.
 ### Requirements
 
 In order to run the application Java and MongoDB must be installed locally. MongoDB must be running.
+
+**NOTE** currently application doesn't have user management functionality. To add initial users to the database need to uncomment initialization Bean `ApplicationRunner init(UserRepository repository)` in `LibraryApplication` class and run application once with this code.
 
 ### Run server
 
